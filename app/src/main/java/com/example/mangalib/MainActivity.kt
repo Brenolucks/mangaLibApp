@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
         installSplashScreen()
         setContentView(R.layout.activity_main)
 
-        val i: Intent = Intent(baseContext, InicialScreen::class.java)
+        val i = Intent(baseContext, InicialScreen::class.java)
         startActivity(i)
     }
 }
