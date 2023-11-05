@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/imgCoverManga"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:src="@drawable/splashicon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.086"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.055"
+        tools:srcCompat="@drawable/splashicon" />
+
+    <TextView
+        android:id="@+id/txtMangaTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Manga Title"
+        app:layout_constraintStart_toEndOf="@+id/imgCoverManga"
+        app:layout_constraintTop_toTopOf="@+id/imgCoverManga" />
+
+    <TextView
+        android:id="@+id/txtNumCaps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Numbers of Caps"
+        app:layout_constraintBottom_toTopOf="@+id/txtDesc"
+        app:layout_constraintStart_toEndOf="@+id/imgCoverManga"
+        app:layout_constraintTop_toBottomOf="@+id/txtMangaTitle"
+        app:layout_constraintVertical_bias="0.142" />
+
+    <TextView
+        android:id="@+id/txtDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="This is a description from the manga."
+        app:layout_constraintBottom_toBottomOf="@+id/imgCoverManga"
+        app:layout_constraintStart_toEndOf="@+id/imgCoverManga" />
+</androidx.constraintlayout.widget.ConstraintLayout>
