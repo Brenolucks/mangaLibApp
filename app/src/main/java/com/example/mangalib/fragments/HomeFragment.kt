@@ -1,5 +1,6 @@
 package com.example.mangalib.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.mangalib.R
 import com.example.mangalib.adapters.MangaAdapter
 import com.example.mangalib.model.fakeManga
+import com.example.mangalib.screens.DetailActivity
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -47,6 +49,13 @@ class HomeFragment : Fragment() {
 
         val mangaAdaper = MangaAdapter(fakeManga())
         recyclerView.adapter = mangaAdaper
+
+        mangaAdaper.onItemClick = {
+            val intent = Intent(context, DetailActivity::class.java)
+            intent.putExtra("rs", it)
+
+            startActivity(intent)
+        }
     }
 
     override fun onCreateView(
