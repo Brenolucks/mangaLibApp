@@ -5,13 +5,21 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentResultListener
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.mangalib.MainActivity
 import com.example.mangalib.R
 import com.example.mangalib.adapters.MangaAdapter
+import com.example.mangalib.model.FakeMangas
 import com.example.mangalib.model.fakeManga
 import com.example.mangalib.screens.DetailActivity
+import org.w3c.dom.Text
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -31,6 +39,8 @@ class HomeFragment : Fragment() {
 
     private var rvList: RecyclerView? = null
 
+    private lateinit var editSearch: EditText
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -43,6 +53,7 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val btnSearch: Button = view.findViewById(R.id.btnSearch)
         val recyclerView: RecyclerView = view.findViewById(R.id.rv_home_list)
         val layoutManager = LinearLayoutManager(context)
         recyclerView.layoutManager = layoutManager
@@ -55,6 +66,17 @@ class HomeFragment : Fragment() {
             intent.putExtra("rs", it)
 
             startActivity(intent)
+        }
+
+        editSearch = view.findViewById(R.id.editSearch)
+
+        btnSearch.setOnClickListener {
+            for(mangaTeste in fakeManga()){
+                if(mangaTeste.mangaName.contentEquals(editSearch.text)){
+                    val intentM = Intent(context, MainActivity::class.java)
+                    startActivity(intentM)
+                }
+            }
         }
     }
 

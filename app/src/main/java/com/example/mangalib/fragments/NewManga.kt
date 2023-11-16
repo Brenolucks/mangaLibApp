@@ -8,10 +8,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageButton
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.os.bundleOf
 import com.example.mangalib.R
+import com.google.android.material.bottomnavigation.BottomNavigationView
+
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
@@ -38,12 +43,15 @@ class NewManga : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val imgButtonAdd: ImageButton = view.findViewById(R.id.imageButton)
+        val btnAddManga: Button = view.findViewById(R.id.btnAddManga)
+        val editMangaName: EditText = view.findViewById(R.id.editMangaName)
+        val editTotalCap: EditText = view.findViewById(R.id.editTotalCap)
+        val editCapRead: EditText = view.findViewById(R.id.editCapRead)
 
         var getResult = registerForActivityResult(
             ActivityResultContracts.StartActivityForResult()){
             if(it.resultCode == Activity.RESULT_OK){
                 val value = it.data?.getStringExtra("input")
-
             }
         }
 
@@ -51,6 +59,7 @@ class NewManga : Fragment() {
             val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
             getResult.launch(intent)
         }
+
     }
 
 

@@ -23,17 +23,17 @@ class InicialScreen : AppCompatActivity() {
         setContentView(binding.root)
         replaceFragment(HomeFragment())
 
-        binding.bottomNavView.setOnItemSelectedListener{
-            when(it.itemId){
-                R.id.home -> replaceFragment(HomeFragment())
-                R.id.addNewManga -> replaceFragment(NewManga())
-                R.id.settings -> replaceFragment(ProfileFragment())
-                else -> {
-
-                }
-            }
-            true
-        }
+//        binding.bottomNavView.setOnItemSelectedListener{
+//            when(it.itemId){
+//                R.id.home -> replaceFragment(HomeFragment())
+//                R.id.addNewManga -> replaceFragment(NewManga())
+//                R.id.settings -> replaceFragment(ProfileFragment())
+//                else -> {
+//
+//                }
+//            }
+//            true
+//        }
     }
 
     private fun replaceFragment(fragment: Fragment) {
